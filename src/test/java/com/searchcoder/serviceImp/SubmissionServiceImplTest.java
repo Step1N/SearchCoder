@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -35,7 +36,8 @@ public class SubmissionServiceImplTest {
 
 	@InjectMocks
 	private SubmissionServiceImpl submissionService;
-
+	
+	@Before
 	public void setupMock() {
 		MockitoAnnotations.initMocks(this);
 	}
@@ -46,7 +48,7 @@ public class SubmissionServiceImplTest {
 		vOs.addAll(getMockData());
 		when(submissionDAOImpl.getSubmissions()).thenReturn(vOs);
 		SubmissionVOs submissionVOs = submissionService.fetchSubmissions();
-		assertNotNull(submissionVOs);
+		assertEquals(submissionVOs.getSubmissions().size(), 0);
 	}
 	
 	private List<Submission> getMockData(){
