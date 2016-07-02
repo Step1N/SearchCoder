@@ -196,5 +196,15 @@ public class SubmissionServiceImpl implements SubmissionService{
 		this.mapper = mapper;
 	}
 
-
+	public static void print(int i){
+		System.out.print("\t"+ i);
+		if(i< 100){
+			print(++i);
+		}
+		
+		return;
+	}
+ public static void main(String[] args) {
+	 print(1);
+ }
 }

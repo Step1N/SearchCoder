@@ -23,6 +23,8 @@ import com.searchcoder.expception.SearchCoderException;
 import com.searchcoder.model.ModelMapper;
 import com.searchcoder.model.SubmissionVOs;
 
+import static org.mockito.Matchers.any;
+
 @RunWith(SpringJUnit4ClassRunner.class) 
 @ContextConfiguration(locations = {"classpath:test-context.xml"})
 @Configuration
@@ -47,6 +49,15 @@ public class SubmissionServiceImplTest {
 		List<Submission> vOs = new ArrayList<Submission>();
 		vOs.addAll(getMockData());
 		when(submissionDAOImpl.getSubmissions()).thenReturn(vOs);
+		SubmissionVOs submissionVOs = submissionService.fetchSubmissions();
+		assertEquals(submissionVOs.getSubmissions().size(), 0);
+	}
+	
+	@Test
+	public void testFilterSubmissions() throws SearchCoderException {
+		List<Submission> vOs = new ArrayList<Submission>();
+		vOs.addAll(getMockData());
+		//when(submissionDAOImpl.filterSubmissions(any(SubmissionSearchVO.class))).thenReturn(vOs);
 		SubmissionVOs submissionVOs = submissionService.fetchSubmissions();
 		assertEquals(submissionVOs.getSubmissions().size(), 0);
 	}

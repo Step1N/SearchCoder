@@ -14,7 +14,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.orm.hibernate4.HibernateCallback;
 import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
 
-public abstract class SearchCoderGenericDAO extends HibernateDaoSupport {
+public abstract class SearchCoderGenericDAO extends HibernateDaoSupport implements SearchCoderDaoTempate {
 
 	final static Logger logger = Logger.getLogger(SearchCoderGenericDAO.class);
 	
