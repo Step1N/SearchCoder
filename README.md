@@ -1,5 +1,8 @@
 # SearchCoder
 
+Application build based on spring framwork using hibernate.
+
+
 Prerequisite
 1. Java above 1.5
 2. Apache Tomcat (apache-tomcat-6.0.43)
